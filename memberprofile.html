@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="zh-tw">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <h2 id="title">會員個人頁面</h2>
+
+    <button onclick="showWord()">show something</button>
+    <button onclick="changeColor()">change color</button>
+
+
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <td>name</td>
+            <td>job</td>
+            <td>age</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="name">
+            <td>paddy</td>
+            <td>kisumi</td>
+            <td>dio</td>
+          </tr>
+          <tr>
+            <td>engineer</td>
+            <td>designer</td>
+            <td>engineer</td>
+          </tr>
+          <tr id="age">
+            <td>26</td>
+            <td>26</td>
+            <td>18</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr/ >
+      <span>動態改變文字</span>
+    </br>
+      <input id="word" onchange="changeWord(event)" />
+      <div id="showWord">null</div>
+    </div>
+  </body>
+  <script>
+    const url = location.href;
+    if (url.indexOf("member") != -1) {
+      const memberID = url.split("member/")[1];
+      document.write("你的會員ID是  " + memberID);
+    }
+
+    const showWord = () => {
+      $("h2").html('<input />')
+    }
+
+    const changeColor = () => {
+      console.log($("#name"));
+      $("#name td").css('background', 'red')
+    };
+
+    const changeWord = (e) => {
+      console.log(e.target);
+      console.log($("#showWord"));
+      $("#showWord").html(e.target.value);
+    };
+  </script>
+
+  <style>
+    td {
+      border: 1px black solid;
+    }
+  </style>
+</html>
